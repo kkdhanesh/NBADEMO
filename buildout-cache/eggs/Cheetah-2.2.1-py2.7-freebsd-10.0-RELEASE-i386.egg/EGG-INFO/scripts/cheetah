@@ -1,0 +1,3 @@
+#!/usr/local/PLONE-50/zinstance/bin/python2.7
+from Cheetah.CheetahWrapper import CheetahWrapper
+CheetahWrapper().main()

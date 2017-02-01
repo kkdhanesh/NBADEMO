@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="example.dexterityforms"
+      metal:use-macro="context/main_template/macros/master">
+      
+    <metal:block fill-slot="main">
+        
+        <h1 class="documentFirstHeading" tal:content="view/label | nothing" />
+        
+        <p>Welcome to this form.</p>
+<!--
+
+        <span tal:content="view/displayrecords" />
+-->
+
+<table tal:define="rec view/displayrecords">
+<tr><th>ID</th><th>NAME</th><th>MARKS</th></tr>
+<tr tal:repeat="rc rec">
+
+<td tal:content="rc/id">ID</td>
+<td tal:content="rc/name">NAME</td>
+<td tal:content="rc/marks">MARKS</td>
+</tr>
+</table>
+
+
+<!--
+        </tal:main-macro>
+-->
+<!--        
+<tal:x replace="nothing">
+this diplays the whole form if the customisation is minimal.
+</tal:x>
+        <div id="content-core">
+            <metal:block use-macro="context/@@ploneform-macros/titlelessform" />
+        </div>
+
+<tal:x replace="nothing">
+ Couldn't get the /field macro to work. Used various
+values for widget??
+</tal:x>
+-->
+
+<!--
+        <div tal:define="widget string:formfield-form-widgets-stud_id">
+            <metal:block use-macro="context/@@ploneform-macros/field" />
+        </div>
+
+        <div>
+            <metal:block use-macro="context/@@ploneform-macros/field" />
+        </div>
+-->
+<tal:x replace="nothing">
+</tal:x>
+</metal:block>
+</html>
+

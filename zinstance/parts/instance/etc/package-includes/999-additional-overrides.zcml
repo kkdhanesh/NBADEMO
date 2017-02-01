@@ -1,0 +1,9 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+    <configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:db="http://namespaces.zope.org/db">
+     <include package="z3c.saconfig" file="meta.zcml" />
+      <db:engine name="ex"
+                 url="mysql://root:dhanesh@localhost/ex" />
+      <db:session engine="ex"/>
+</configure>
+</configure>

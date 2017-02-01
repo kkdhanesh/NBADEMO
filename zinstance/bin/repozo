@@ -1,0 +1,18 @@
+#!/usr/local/PLONE-50/zinstance/bin/python2.7
+
+import sys
+sys.path[0:0] = [
+  '/usr/local/PLONE-50/buildout-cache/eggs/ZODB3-3.10.5-py2.7-freebsd-10.0-RELEASE-i386.egg',
+  '/usr/local/PLONE-50/buildout-cache/eggs/zope.interface-3.6.7-py2.7-freebsd-10.0-RELEASE-i386.egg',
+  '/usr/local/PLONE-50/buildout-cache/eggs/zope.event-3.5.2-py2.7.egg',
+  '/usr/local/PLONE-50/buildout-cache/eggs/zdaemon-2.0.7-py2.7.egg',
+  '/usr/local/PLONE-50/buildout-cache/eggs/ZConfig-2.9.3-py2.7.egg',
+  '/usr/local/PLONE-50/buildout-cache/eggs/zc.lockfile-1.0.2-py2.7.egg',
+  '/usr/local/PLONE-50/buildout-cache/eggs/transaction-1.1.1-py2.7.egg',
+  '/usr/local/PLONE-50/zinstance/lib/python2.7/site-packages',
+  ]
+
+import ZODB.scripts.repozo
+
+if __name__ == '__main__':
+    sys.exit(ZODB.scripts.repozo.main())

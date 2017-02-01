@@ -1,0 +1,81 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="example.dexterityforms"
+      metal:use-macro="context/main_template/macros/master">
+
+      
+    <metal:block fill-slot="main">
+        
+        <h1 class="documentFirstHeading" tal:content="view/label | nothing" />
+        
+        <p>Welcome to this form.</p>
+<!--
+
+        <span tal:content="view/displayrecords" />
+-->
+
+<!--
+<span tal:define="mem nocall:context/portal_membership;">
+
+<h1 tal:content="python:mem.getAuthenticatedMember()"></h1>
+<h1 tal:define="withrole  python:mem.getMemberById('user1').has_role('assisstant')">perm</h1>
+</span>
+-->
+
+<span tal:define="mem nocall:context/portal_membership;
+                  us  python:mem.getAuthenticatedMember();
+                  us1  string:$us;        
+                  withrole python:mem.getMemberById(us1).has_role('assisstant');">
+
+<table tal:define="rec view/displayrecords">
+<tr><th>Plant Type</th><th>Local Name</th><th>Scientific Name</th><th>habit</th><th>habitat</th><th>Local status</th><th>Use</th><th>Part</th><th>TK</th><th>Other</th><th>Knowledge</th></tr>
+<tr tal:repeat="rc rec">
+
+<td tal:content="rc/plant_type"></td>
+<td tal:content="rc/local_name"></td>
+<td tal:content="rc/scientific_name"></td>
+<td tal:content="rc/habit"></td>
+<td tal:content="rc/habitat"></td>
+<td tal:content="rc/local_status"></td>
+<td tal:content="rc/use1"></td>
+<td tal:content="rc/part"></td>
+<td tal:content="rc/tk"></td>
+<td tal:content="rc/other"></td>
+<td tal:condition="withrole" tal:content="rc/knowledge"></td>
+</tr>
+</table>
+</span>
+
+<!--
+        </tal:main-macro>
+-->
+<!--        
+<tal:x replace="nothing">
+this diplays the whole form if the customisation is minimal.
+</tal:x>
+        <div id="content-core">
+            <metal:block use-macro="context/@@ploneform-macros/titlelessform" />
+        </div>
+
+<tal:x replace="nothing">
+ Couldn't get the /field macro to work. Used various
+values for widget??
+</tal:x>
+-->
+
+<!--
+        <div tal:define="widget string:formfield-form-widgets-stud_id">
+            <metal:block use-macro="context/@@ploneform-macros/field" />
+        </div>
+
+        <div>
+            <metal:block use-macro="context/@@ploneform-macros/field" />
+        </div>
+-->
+<tal:x replace="nothing">
+</tal:x>
+</metal:block>
+</html>
+

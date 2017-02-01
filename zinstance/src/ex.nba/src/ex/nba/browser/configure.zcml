@@ -1,0 +1,37 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="ex.nba"
+    xmlns:grok="http://namespaces.zope.org/grok"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    >
+
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+      directory="overrides"
+      layer="ex.nba.interfaces.IExNbaLayer"
+      />
+
+  <!-- Publish static files -->
+  <browser:resourceDirectory
+      name="ex.nba"
+      directory="static"
+      />
+
+
+   <grok:grok package="." />
+<!--
+   <permission
+   id="ex.nba.mypermissio" 
+   title="ex.nba:mypermission"
+   />
+   <browser:page
+   for="*"
+   name="bio" 
+   class=".bio.EditForm"
+   permission="ex.nba:mypermission"
+    />
+-->
+</configure>
